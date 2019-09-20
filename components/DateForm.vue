@@ -1,21 +1,26 @@
 <template>
   <div class="datePicker__wrapper">
+    {{ openCalendar }}
     <p class="datePicker__label">
       Dates
     </p>
-    {{ openCalendar }}
     <div class="datePicker">
       <p class="datePicker__actions">
         <span :class="['datePicker__btn', openCalendar === 1 ? 'datePicker__btn--active' : '']" @click="openCalendar = 1">Check In</span>
         <span :class="['datePicker__btn', openCalendar === 2 ? 'datePicker__btn--active' : '']" @click="openCalendar = 2">Check Out</span>
       </p>
     </div>
-
+    <DatePicker v-if="openCalendar !== 0" />
   </div>
 </template>
 <script>
+import DatePicker from './DatePicker'
+
 export default {
   name: 'DateForm',
+  components: {
+    DatePicker
+  },
   data () {
     return {
       openCalendar: 0
@@ -48,7 +53,7 @@ export default {
   }
 
   &__wrapper {
-    width: 260px;
+    width: 320px;
   }
 
   &__label {

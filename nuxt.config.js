@@ -23,12 +23,13 @@ export default {
   ** Global CSS
   */
   css: [
-      '@/assets/css/main.scss'
+    '@/assets/css/main.scss'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/myFilters.js'
   ],
   /*
   ** Nuxt.js dev-modules
