@@ -1,17 +1,17 @@
 <template>
   <div class="dateForm__wrapper">
-    {{ openCalendar }}
+    {{ calendarType }}
     <p class="dateForm__label">
       Dates
     </p>
     <div class="dateForm">
       <p class="dateForm__actions">
-        <span :class="['dateForm__btn', openCalendar === 1 ? 'dateForm__btn--active' : '']" @click="openCalendar = 1">Check In</span>
+        <span :class="['dateForm__btn', calendarType === 'start' ? 'dateForm__btn--active' : '']" @click="calendarType = 'start'">Check In</span>
         <v-icon class="dateForm__arrowIcon" name="arrow-right" />
-        <span :class="['dateForm__btn', openCalendar === 2 ? 'dateForm__btn--active' : '']" @click="openCalendar = 2">Check Out</span>
+        <span :class="['dateForm__btn', calendarType === 'end' ? 'dateForm__btn--active' : '']" @click="calendarType = 'end'">Check Out</span>
       </p>
     </div>
-    <DatePicker v-if="openCalendar !== 0" :available-dates="availableDates" />
+    <DatePicker v-if="calendarType !== null" :calendar-type="calendarType" :available-dates="availableDates" />
   </div>
 </template>
 <script>
@@ -24,7 +24,7 @@ export default {
   },
   data () {
     return {
-      openCalendar: 0,
+      calendarType: null,
       availableDates: [
         {
           start: new Date(new Date(2019, 4, 2)),

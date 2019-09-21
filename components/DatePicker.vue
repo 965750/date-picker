@@ -29,11 +29,12 @@
           v-for="day in daysInMonth"
           :key="`calendar-${day.label}`"
           :class="[`day`, day.availableType === 1 ? 'day__wrapper--available' : '']"
+          @click="pickedDates[calendarType] = day"
         >
           <div
             :class="[
-              day.availableType === 2 ? 'day__wrapper--circle' : '',
-              day.availableType === 3 ? 'day__wrapper--circle' : '',
+              day.availableType === 3 || day.availableType === 2 ? 'day__wrapper--circle' : '',
+              isPicked(day) ? 'day__wrapper--picked' : '',
             ]"
           />
 
@@ -48,6 +49,7 @@
             :class="[
               'day__label',
               day.availableType === 2 || day.availableType === 3 ? 'day__label--available' : '',
+              isPicked(day) ? 'day__label--picked' : '',
             ]"
           >
             {{ day.label }}
@@ -55,7 +57,7 @@
         </div>
       </div>
     </div>
-    {{ month }} --- {{ year }}
+    {{ month }} --- {{ year }} --- {{ pickedDates }}
   </div>
 </template>
 
@@ -63,6 +65,10 @@
 export default {
   name: 'DatePicker',
   props: {
+    calendarType: {
+      required: true,
+      type: [String, Boolean]
+    },
     availableDates: {
       required: true,
       type: Array
@@ -72,7 +78,11 @@ export default {
     return {
       days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
       year: 2019,
-      month: 3
+      month: 3,
+      pickedDates: {
+        start: null,
+        end: null
+      }
     }
   },
   computed: {
@@ -113,13 +123,15 @@ export default {
           availableType
         }
       })
-      console.log(fullDays, 44444)
+
       return fullDays
     }
   },
   methods: {
+    isPicked (day) {
+      return (this.pickedDates.start && this.pickedDates.start.timestamp === day.timestamp) || (this.pickedDates.end && this.pickedDates.end.timestamp === day.timestamp)
+    },
     changeMonth (value) {
-      console.log('clicked')
       if (this.month === 11 && value === 1) {
         this.year++
         this.month = 0
@@ -188,8 +200,6 @@ export default {
   position: relative;
 
   &:hover {
-    border: 2px solid #01DBB3;
-    border-radius: 50%;
     cursor: pointer;
   }
 
@@ -203,6 +213,10 @@ export default {
     &--available {
       color: #FFF;
     }
+
+    &--picked {
+      color: #3AD8B8;
+    }
   }
   &__wrapper {
 
@@ -211,8 +225,6 @@ export default {
       color: #3AD8B8;
 
       &:hover {
-        border: 2px solid #01DBB3;
-        border-radius: 50%;
         cursor: pointer;
       }
     }
@@ -226,6 +238,12 @@ export default {
       border-radius: 50%;
       background: #01DBB3;
       color: #FFF;
+    }
+
+    &--picked {
+      @extend .day__wrapper--circle;
+      background: #C3FEF8;
+      border: 3px solid #01DBB3;
     }
 
     &--availableRight {
