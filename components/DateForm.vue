@@ -11,7 +11,7 @@
         <span :class="['dateForm__btn', openCalendar === 2 ? 'dateForm__btn--active' : '']" @click="openCalendar = 2">Check Out</span>
       </p>
     </div>
-    <DatePicker v-if="openCalendar !== 0" />
+    <DatePicker v-if="openCalendar !== 0" :available-dates="availableDates" />
   </div>
 </template>
 <script>
@@ -24,7 +24,21 @@ export default {
   },
   data () {
     return {
-      openCalendar: 0
+      openCalendar: 0,
+      availableDates: [
+        {
+          start: new Date(new Date(2019, 4, 2)),
+          end: new Date(new Date(2019, 4, 9))
+        },
+        {
+          start: new Date(new Date(2019, 3, 22)),
+          end: new Date(new Date(2019, 3, 26))
+        },
+        {
+          start: new Date(new Date(2019, 3, 12)),
+          end: new Date(new Date(2019, 3, 19))
+        }
+      ]
     }
   }
 }
