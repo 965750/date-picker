@@ -29,7 +29,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/myFilters.js'
+    '~/plugins/myFilters.js',
+    '~/plugins/myComponents.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -50,6 +51,7 @@ export default {
     /*
     ** You can extend webpack config here
     */
+    transpile: [/^vue-awesome/],
     extend (config, ctx) {
     }
   }

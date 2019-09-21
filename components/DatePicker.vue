@@ -1,7 +1,13 @@
 <template>
   <div>
     <div class="datePicker__header">
-      March 2018
+      <div class="datePicker__arrowIcon" @click="changeMonth(-1)">
+        <v-icon name="chevron-left" @click="changeMonth(-1)" />
+      </div>
+      <p>{{ month | namesOfMonths }} {{ year }}</p>
+      <div class="datePicker__arrowIcon" @click="changeMonth(1)">
+        <v-icon name="chevron-right" />
+      </div>
     </div>
     <div class="datePicker__calendar">
       <div class="datePicker__daysLabels">
@@ -21,13 +27,14 @@
         />
         <div
           v-for="day in daysInMonth"
-          :key="`calendar-${day}`"
+          :key="`calendar-${day.label}`"
           class="datePicker__day"
         >
-          {{ day }}
+          {{ day.label }}
         </div>
       </div>
     </div>
+    {{ month }} --- {{ year }}
   </div>
 </template>
 
@@ -38,7 +45,7 @@ export default {
     return {
       days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
       year: 2019,
-      month: 0
+      month: 3
     }
   },
   computed: {
@@ -52,7 +59,32 @@ export default {
       }
     },
     daysInMonth () {
-      return new Date(this.year, this.month + 1, 0).getDate()
+      console.log(new Date(2019, 3, 22).getTime())
+      const days = new Array(new Date(this.year, this.month + 1, 0).getDate())
+      days.fill(1)
+
+      const fullDays = days.map((day, index) => {
+        return {
+          label: index + 1,
+          timestamp: new Date(2019, 4, index + 1).getTime()
+        }
+      })
+
+      return fullDays
+    }
+  },
+  methods: {
+    changeMonth (value) {
+      console.log('clicked')
+      if (this.month === 11 && value === 1) {
+        this.year++
+        this.month = 0
+      } else if (this.month === 0 && value === -1) {
+        this.year--
+        this.month = 11
+      } else {
+        this.month += value
+      }
     }
   }
 }
@@ -69,6 +101,15 @@ export default {
     text-align: center;
     font-size: 20px;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 25px;
+  }
+
+  &__arrowIcon {
+    padding: 0 5px;
+    color: #44514D;
+    cursor: pointer;
   }
 
   &__days {

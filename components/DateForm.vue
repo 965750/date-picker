@@ -1,13 +1,14 @@
 <template>
-  <div class="datePicker__wrapper">
+  <div class="dateForm__wrapper">
     {{ openCalendar }}
-    <p class="datePicker__label">
+    <p class="dateForm__label">
       Dates
     </p>
-    <div class="datePicker">
-      <p class="datePicker__actions">
-        <span :class="['datePicker__btn', openCalendar === 1 ? 'datePicker__btn--active' : '']" @click="openCalendar = 1">Check In</span>
-        <span :class="['datePicker__btn', openCalendar === 2 ? 'datePicker__btn--active' : '']" @click="openCalendar = 2">Check Out</span>
+    <div class="dateForm">
+      <p class="dateForm__actions">
+        <span :class="['dateForm__btn', openCalendar === 1 ? 'dateForm__btn--active' : '']" @click="openCalendar = 1">Check In</span>
+        <v-icon class="dateForm__arrowIcon" name="arrow-right" />
+        <span :class="['dateForm__btn', openCalendar === 2 ? 'dateForm__btn--active' : '']" @click="openCalendar = 2">Check Out</span>
       </p>
     </div>
     <DatePicker v-if="openCalendar !== 0" />
@@ -30,12 +31,17 @@ export default {
 </script>
 
 <style lang="scss">
-.datePicker {
+.dateForm {
   border: 1px solid #D6D6D6;
   height: 36px;
   border-radius: 2px;
   padding: 5px;
   box-sizing: border-box;
+
+  &__arrowIcon {
+    height: 24px;
+    width: 24px;
+  }
 
   &__actions {
     display: flex;
