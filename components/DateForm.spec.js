@@ -33,6 +33,10 @@ describe('DateForm.vue', () => {
   it('should open calendar as check out', () => {
     const wrapper = createWrapper()
 
+    wrapper.setData({
+      start: '6/8/2019'
+    })
+
     expect(wrapper.vm.calendarType).toBe(null)
 
     wrapper.find('#checkOut').trigger('click')
@@ -51,5 +55,13 @@ describe('DateForm.vue', () => {
     })
 
     expect(wrapper.vm.start).toBe('9/8/2019')
+  })
+
+  it('should NOT let change check out when check in is empty', () => {
+    const wrapper = createWrapper()
+
+    wrapper.find('#checkOut').trigger('click')
+
+    expect(wrapper.element).toMatchSnapshot()
   })
 })

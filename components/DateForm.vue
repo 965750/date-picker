@@ -22,7 +22,7 @@
             'dateForm__btn': true,
             'dateForm__btn--active': calendarType === 'end'
           }"
-          @click="calendarType = 'end'"
+          @click="checkStartDate"
         >
           {{ end }}
         </span>
@@ -61,6 +61,11 @@ export default {
     }
   },
   methods: {
+    checkStartDate () {
+      if (this.start !== 'Check In') {
+        this.calendarType = 'end'
+      }
+    },
     changeDate (day) {
       const date = new Date(day.timestamp)
       const year = date.getFullYear()

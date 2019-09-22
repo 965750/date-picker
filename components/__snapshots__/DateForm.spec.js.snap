@@ -1,5 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`DateForm.vue should NOT let change check out when check in is empty 1`] = `
+<div
+  class="dateForm__wrapper"
+>
+  <p
+    class="dateForm__label"
+  >
+    
+    Dates
+  
+  </p>
+   
+  <div
+    class="dateForm"
+  >
+    <p
+      class="dateForm__actions"
+    >
+      <span
+        class="dateForm__btn"
+        id="checkIn"
+      >
+        
+        Check In
+      
+      </span>
+       
+      <vicon-stub
+        class="dateForm__arrowIcon"
+        name="arrow-right"
+      />
+       
+      <span
+        class="dateForm__btn"
+        id="checkOut"
+      >
+        
+        Check Out
+      
+      </span>
+    </p>
+  </div>
+   
+  <!---->
+</div>
+`;
+
 exports[`DateForm.vue should initial snapshot 1`] = `
 <div
   class="dateForm__wrapper"
