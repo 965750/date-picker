@@ -1,11 +1,21 @@
 <template>
   <div>
     <div class="datePicker__header">
-      <div class="datePicker__arrowIcon" @click="changeMonth(-1)">
+      <div
+        id="arrowLeft"
+        class="datePicker__arrowIcon"
+        @click="changeMonth(-1)"
+      >
         <v-icon name="chevron-left" @click="changeMonth(-1)" />
       </div>
-      <p>{{ month | namesOfMonths }} {{ year }}</p>
-      <div class="datePicker__arrowIcon" @click="changeMonth(1)">
+      <p id="calendarHeader">
+        {{ month | namesOfMonths }} {{ year }}
+      </p>
+      <div
+        id="arrowRight"
+        class="datePicker__arrowIcon"
+        @click="changeMonth(1)"
+      >
         <v-icon name="chevron-right" />
       </div>
     </div>
@@ -135,7 +145,7 @@ export default {
       return fullDays
     }
   },
-  mounted () {
+  created () {
     this.year = new Date().getFullYear()
     this.month = new Date().getMonth()
   },

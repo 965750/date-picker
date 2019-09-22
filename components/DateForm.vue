@@ -6,6 +6,7 @@
     <div class="dateForm">
       <p class="dateForm__actions">
         <span
+          id="checkIn"
           :class="{
             'dateForm__btn': true,
             'dateForm__btn--active': calendarType === 'start'
@@ -16,12 +17,15 @@
         </span>
         <v-icon class="dateForm__arrowIcon" name="arrow-right" />
         <span
+          id="checkOut"
           :class="{
             'dateForm__btn': true,
             'dateForm__btn--active': calendarType === 'end'
           }"
           @click="calendarType = 'end'"
-        >{{ end }}</span>
+        >
+          {{ end }}
+        </span>
       </p>
     </div>
     <DatePicker v-if="calendarType !== null" :calendar-type="calendarType" :available-dates="availableDates" @changeDate="changeDate" />
@@ -42,16 +46,16 @@ export default {
       calendarType: null,
       availableDates: [
         {
-          start: new Date(new Date(2019, 8, 3)),
-          end: new Date(new Date(2019, 8, 10))
+          start: new Date(2019, 8, 3),
+          end: new Date(2019, 8, 10)
         },
         {
-          start: new Date(new Date(2019, 8, 22)),
-          end: new Date(new Date(2019, 8, 27))
+          start: new Date(2019, 8, 22),
+          end: new Date(2019, 8, 27)
         },
         {
-          start: new Date(new Date(2019, 9, 8)),
-          end: new Date(new Date(2019, 9, 24))
+          start: new Date(2019, 9, 8),
+          end: new Date(2019, 9, 24)
         }
       ]
     }

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification.vue should NOT activate error notification when only one date was picked 1`] = `<!---->`;
+
+exports[`Notification.vue should activate error notification when check out date is earlier than check in date 1`] = `
+<div
+  class="notification"
+>
+  <p>
+    Check In date should be earlier than Check Out date
+  </p>
+</div>
+`;
+
+exports[`Notification.vue should activate error notification when dates were picked out of the available range 1`] = `
+<div
+  class="notification"
+>
+  <p>
+    You should pick date from range of available
+  </p>
+</div>
+`;
+
+exports[`Notification.vue should match empty snapshot when dates were picked correctly 1`] = `<!---->`;

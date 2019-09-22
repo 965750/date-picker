@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`index.vue should initial snapshot 1`] = `
+<div
+  class="app"
+>
+  <dateform-stub />
+</div>
+`;

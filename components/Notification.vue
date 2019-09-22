@@ -51,6 +51,7 @@ export default {
           rangeCounter--
         }
       })
+
       if (rangeCounter === this.availableDates.length) {
         error = 'You should pick date from range of available'
       }

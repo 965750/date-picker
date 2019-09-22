@@ -1,0 +1,619 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DatePicker.vue should match snapshot 1`] = `
+<div>
+  <div
+    class="datePicker__header"
+  >
+    <div
+      class="datePicker__arrowIcon"
+      id="arrowLeft"
+    >
+      <vicon-stub
+        name="chevron-left"
+      />
+    </div>
+     
+    <p
+      id="calendarHeader"
+    >
+      
+      September 2019
+    
+    </p>
+     
+    <div
+      class="datePicker__arrowIcon"
+      id="arrowRight"
+    >
+      <vicon-stub
+        name="chevron-right"
+      />
+    </div>
+  </div>
+   
+  <div
+    class="datePicker__calendar"
+  >
+    <div
+      class="datePicker__daysLabels"
+    >
+      <div
+        class="datePicker__dayLabel"
+      >
+        
+        Sun
+      
+      </div>
+      <div
+        class="datePicker__dayLabel"
+      >
+        
+        Mon
+      
+      </div>
+      <div
+        class="datePicker__dayLabel"
+      >
+        
+        Tue
+      
+      </div>
+      <div
+        class="datePicker__dayLabel"
+      >
+        
+        Wed
+      
+      </div>
+      <div
+        class="datePicker__dayLabel"
+      >
+        
+        Thu
+      
+      </div>
+      <div
+        class="datePicker__dayLabel"
+      >
+        
+        Fri
+      
+      </div>
+      <div
+        class="datePicker__dayLabel"
+      >
+        
+        Sat
+      
+      </div>
+    </div>
+     
+    <div
+      class="datePicker__days"
+    >
+       
+      <div
+        class="day"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          1
+        
+        </span>
+      </div>
+      <div
+        class="day"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          2
+        
+        </span>
+      </div>
+      <div
+        class="day"
+      >
+        <div
+          class="day__wrapper--circle"
+        />
+         
+        <div
+          class="day__wrapper--availableRight"
+        />
+         
+        <span
+          class="day__label day__label--available"
+        >
+          
+          3
+        
+        </span>
+      </div>
+      <div
+        class="day day__wrapper--available"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          4
+        
+        </span>
+      </div>
+      <div
+        class="day day__wrapper--available"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          5
+        
+        </span>
+      </div>
+      <div
+        class="day day__wrapper--available"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          6
+        
+        </span>
+      </div>
+      <div
+        class="day day__wrapper--available"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          7
+        
+        </span>
+      </div>
+      <div
+        class="day day__wrapper--available"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          8
+        
+        </span>
+      </div>
+      <div
+        class="day day__wrapper--available"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          9
+        
+        </span>
+      </div>
+      <div
+        class="day"
+      >
+        <div
+          class="day__wrapper--circle"
+        />
+         
+        <div
+          class="day__wrapper--availableLeft"
+        />
+         
+        <span
+          class="day__label day__label--available"
+        >
+          
+          10
+        
+        </span>
+      </div>
+      <div
+        class="day"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          11
+        
+        </span>
+      </div>
+      <div
+        class="day"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          12
+        
+        </span>
+      </div>
+      <div
+        class="day"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          13
+        
+        </span>
+      </div>
+      <div
+        class="day"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          14
+        
+        </span>
+      </div>
+      <div
+        class="day"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          15
+        
+        </span>
+      </div>
+      <div
+        class="day"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          16
+        
+        </span>
+      </div>
+      <div
+        class="day"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          17
+        
+        </span>
+      </div>
+      <div
+        class="day"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          18
+        
+        </span>
+      </div>
+      <div
+        class="day"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          19
+        
+        </span>
+      </div>
+      <div
+        class="day"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          20
+        
+        </span>
+      </div>
+      <div
+        class="day"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          21
+        
+        </span>
+      </div>
+      <div
+        class="day"
+      >
+        <div
+          class="day__wrapper--circle"
+        />
+         
+        <div
+          class="day__wrapper--availableRight"
+        />
+         
+        <span
+          class="day__label day__label--available"
+        >
+          
+          22
+        
+        </span>
+      </div>
+      <div
+        class="day day__wrapper--available"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          23
+        
+        </span>
+      </div>
+      <div
+        class="day day__wrapper--available"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          24
+        
+        </span>
+      </div>
+      <div
+        class="day day__wrapper--available"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          25
+        
+        </span>
+      </div>
+      <div
+        class="day day__wrapper--available"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          26
+        
+        </span>
+      </div>
+      <div
+        class="day"
+      >
+        <div
+          class="day__wrapper--circle"
+        />
+         
+        <div
+          class="day__wrapper--availableLeft"
+        />
+         
+        <span
+          class="day__label day__label--available"
+        >
+          
+          27
+        
+        </span>
+      </div>
+      <div
+        class="day"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          28
+        
+        </span>
+      </div>
+      <div
+        class="day"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          29
+        
+        </span>
+      </div>
+      <div
+        class="day"
+      >
+        <div
+          class=""
+        />
+         
+        <!---->
+         
+        <span
+          class="day__label"
+        >
+          
+          30
+        
+        </span>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
