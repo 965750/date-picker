@@ -1,14 +1,27 @@
 <template>
   <div class="dateForm__wrapper">
-    {{ calendarType }}
     <p class="dateForm__label">
       Dates
     </p>
     <div class="dateForm">
       <p class="dateForm__actions">
-        <span :class="['dateForm__btn', calendarType === 'start' ? 'dateForm__btn--active' : '']" @click="calendarType = 'start'">{{ start }}</span>
+        <span
+          :class="{
+            'dateForm__btn': true,
+            'dateForm__btn--active': calendarType === 'start'
+          }"
+          @click="calendarType = 'start'"
+        >
+          {{ start }}
+        </span>
         <v-icon class="dateForm__arrowIcon" name="arrow-right" />
-        <span :class="['dateForm__btn', calendarType === 'end' ? 'dateForm__btn--active' : '']" @click="calendarType = 'end'">{{ end }}</span>
+        <span
+          :class="{
+            'dateForm__btn': true,
+            'dateForm__btn--active': calendarType === 'end'
+          }"
+          @click="calendarType = 'end'"
+        >{{ end }}</span>
       </p>
     </div>
     <DatePicker v-if="calendarType !== null" :calendar-type="calendarType" :available-dates="availableDates" @changeDate="changeDate" />
@@ -29,30 +42,26 @@ export default {
       calendarType: null,
       availableDates: [
         {
-          start: new Date(new Date(2019, 4, 2)),
-          end: new Date(new Date(2019, 4, 9))
+          start: new Date(new Date(2019, 8, 3)),
+          end: new Date(new Date(2019, 8, 10))
         },
         {
-          start: new Date(new Date(2019, 3, 22)),
-          end: new Date(new Date(2019, 3, 26))
+          start: new Date(new Date(2019, 8, 22)),
+          end: new Date(new Date(2019, 8, 27))
         },
         {
-          start: new Date(new Date(2019, 3, 12)),
-          end: new Date(new Date(2019, 3, 19))
+          start: new Date(new Date(2019, 9, 8)),
+          end: new Date(new Date(2019, 9, 24))
         }
       ]
     }
   },
   methods: {
     changeDate (day) {
-      console.log(day, 1111)
-
       const date = new Date(day.timestamp)
-
       const year = date.getFullYear()
       const month = date.getMonth()
 
-      console.log(date, year, month)
       this[this.calendarType] = `${day.label}/${month}/${year}`
     }
   }
@@ -60,22 +69,29 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../assets/css/variables';
+
 .dateForm {
-  border: 1px solid #D6D6D6;
+  border: 1px solid $silverSand;
   height: 36px;
   border-radius: 2px;
   padding: 5px;
   box-sizing: border-box;
 
-  &__arrowIcon {
-    height: 24px;
-    width: 24px;
-  }
-
   &__actions {
+    position: relative;
     display: flex;
     justify-content: space-between;
     line-height: 24px;
+  }
+
+  &__arrowIcon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 24px;
+    width: 24px;
   }
 
   &__btn {
@@ -83,7 +99,7 @@ export default {
     cursor: pointer;
 
     &--active {
-      background: #A0DAD4;
+      background: $aquaIsland;
     }
   }
 

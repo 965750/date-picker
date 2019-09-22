@@ -28,29 +28,32 @@
         <div
           v-for="day in daysInMonth"
           :key="`calendar-${day.label}`"
-          :class="[`day`, day.availableType === 1 ? 'day__wrapper--available' : '']"
+          :class="{
+            'day': true,
+            'day__wrapper--available': day.availableType === 1
+          }"
           @click="pickDate(day)"
         >
           <div
-            :class="[
-              day.availableType === 3 || day.availableType === 2 ? 'day__wrapper--circle' : '',
-              isPicked(day) ? 'day__wrapper--picked' : '',
-            ]"
+            :class="{
+              'day__wrapper--circle': day.availableType === 3 || day.availableType === 2,
+              'day__wrapper--picked': isPicked(day)
+            }"
           />
 
           <div
             v-if="day.availableType === 3 || day.availableType === 2"
-            :class="[
-              day.availableType === 2 ? 'day__wrapper--availableRight' : '',
-              day.availableType === 3 ? 'day__wrapper--availableLeft' : '',
-            ]"
+            :class="{
+              'day__wrapper--availableRight': day.availableType === 2,
+              'day__wrapper--availableLeft': day.availableType === 3
+            }"
           />
           <span
-            :class="[
-              'day__label',
-              day.availableType === 2 || day.availableType === 3 ? 'day__label--available' : '',
-              isPicked(day) ? 'day__label--picked' : '',
-            ]"
+            :class="{
+              'day__label': true,
+              'day__label--available': day.availableType === 2 || day.availableType === 3,
+              'day__label--picked': isPicked(day)
+            }"
           >
             {{ day.label }}
           </span>
@@ -82,8 +85,8 @@ export default {
   data () {
     return {
       days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-      year: 2019,
-      month: 3,
+      year: null,
+      month: null,
       pickedDates: {
         start: null,
         end: null
@@ -132,6 +135,10 @@ export default {
       return fullDays
     }
   },
+  mounted () {
+    this.year = new Date().getFullYear()
+    this.month = new Date().getMonth()
+  },
   methods: {
     pickDate (day) {
       this.$emit('changeDate', day)
@@ -156,10 +163,12 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../assets/css/variables';
+
 .datePicker {
 
   &__header {
-    background: #00DBB1;
+    background: $caribbeanGreen;
     height: 60px;
     line-height: 60px;
     color: #FFF;
@@ -173,12 +182,12 @@ export default {
 
   &__arrowIcon {
     padding: 0 5px;
-    color: #44514D;
+    color: $capeCod;
     cursor: pointer;
   }
 
   &__days {
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
   }
@@ -186,7 +195,7 @@ export default {
   &__daysLabels {
     display: flex;
     font-size: 14px;
-    color: #C7C9CC;
+    color: $silverSand;
   }
 
   &__dayLabel {
@@ -196,8 +205,7 @@ export default {
 
   &__calendar {
     padding: 19px;
-    border: 1px solid #D6D6D6;
-    min-height: 260px;
+    border: 1px solid $silverSand;
   }
 }
 
@@ -207,6 +215,7 @@ export default {
   height: 40px;
   line-height: 40px;
   position: relative;
+  margin: 2px 0;
 
   &:hover {
     cursor: pointer;
@@ -224,14 +233,14 @@ export default {
     }
 
     &--picked {
-      color: #3AD8B8;
+      color: $caribbeanGreen;
     }
   }
   &__wrapper {
 
     &--available {
-      background: #C3FEF8;
-      color: #3AD8B8;
+      background: $onahau;
+      color: $caribbeanGreen;
 
       &:hover {
         cursor: pointer;
@@ -245,20 +254,20 @@ export default {
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background: #01DBB3;
+      background: $caribbeanGreen;
       color: #FFF;
     }
 
     &--picked {
       @extend .day__wrapper--circle;
-      background: #C3FEF8;
-      border: 3px solid #01DBB3;
+      background: $onahau;
+      border: 3px solid $caribbeanGreen;
     }
 
     &--availableRight {
       position: absolute;
       z-index: 1;
-      background: #C3FEF8;
+      background: $onahau;
       width: 50%;
       height: 100%;
       top: 0;

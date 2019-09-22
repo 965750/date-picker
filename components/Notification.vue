@@ -38,8 +38,8 @@ export default {
       const endTimestamp = this.pickedDates.end.timestamp
 
       let error = null
-      let counter = this.availableDates.length
-      console.log(counter)
+      let rangeCounter = this.availableDates.length
+
       this.availableDates.forEach((date) => {
         if (
           startTimestamp <= date.end.getTime() &&
@@ -48,9 +48,12 @@ export default {
           endTimestamp >= date.start.getTime()
         ) {
           error = null
-          counter--
+          rangeCounter--
         }
       })
+      if (rangeCounter === this.availableDates.length) {
+        error = 'You should pick date from range of available'
+      }
 
       if (startTimestamp > endTimestamp) {
         error = 'Check In date should be earlier than Check Out date'
@@ -63,8 +66,10 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../assets/css/variables';
+
 .notification {
-  background: #ff5f4a;
+  background: $error;
   border-radius: 4px;
   padding: 10px;
   color: #FFF;
