@@ -6,12 +6,12 @@
     </p>
     <div class="dateForm">
       <p class="dateForm__actions">
-        <span :class="['dateForm__btn', calendarType === 'start' ? 'dateForm__btn--active' : '']" @click="calendarType = 'start'">Check In</span>
+        <span :class="['dateForm__btn', calendarType === 'start' ? 'dateForm__btn--active' : '']" @click="calendarType = 'start'">{{ start }}</span>
         <v-icon class="dateForm__arrowIcon" name="arrow-right" />
-        <span :class="['dateForm__btn', calendarType === 'end' ? 'dateForm__btn--active' : '']" @click="calendarType = 'end'">Check Out</span>
+        <span :class="['dateForm__btn', calendarType === 'end' ? 'dateForm__btn--active' : '']" @click="calendarType = 'end'">{{ end }}</span>
       </p>
     </div>
-    <DatePicker v-if="calendarType !== null" :calendar-type="calendarType" :available-dates="availableDates" />
+    <DatePicker v-if="calendarType !== null" :calendar-type="calendarType" :available-dates="availableDates" @changeDate="changeDate" />
   </div>
 </template>
 <script>
@@ -24,6 +24,8 @@ export default {
   },
   data () {
     return {
+      start: 'Check In',
+      end: 'Check Out',
       calendarType: null,
       availableDates: [
         {
@@ -39,6 +41,19 @@ export default {
           end: new Date(new Date(2019, 3, 19))
         }
       ]
+    }
+  },
+  methods: {
+    changeDate (day) {
+      console.log(day, 1111)
+
+      const date = new Date(day.timestamp)
+
+      const year = date.getFullYear()
+      const month = date.getMonth()
+
+      console.log(date, year, month)
+      this[this.calendarType] = `${day.label}/${month}/${year}`
     }
   }
 }

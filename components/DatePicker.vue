@@ -29,7 +29,7 @@
           v-for="day in daysInMonth"
           :key="`calendar-${day.label}`"
           :class="[`day`, day.availableType === 1 ? 'day__wrapper--available' : '']"
-          @click="pickedDates[calendarType] = day"
+          @click="pickDate(day)"
         >
           <div
             :class="[
@@ -57,13 +57,18 @@
         </div>
       </div>
     </div>
-    {{ month }} --- {{ year }} --- {{ pickedDates }}
+    <Notification :picked-dates="pickedDates" :available-dates="availableDates" />
   </div>
 </template>
 
 <script>
+import Notification from './Notification'
+
 export default {
   name: 'DatePicker',
+  components: {
+    Notification
+  },
   props: {
     calendarType: {
       required: true,
@@ -128,6 +133,10 @@ export default {
     }
   },
   methods: {
+    pickDate (day) {
+      this.$emit('changeDate', day)
+      this.pickedDates[this.calendarType] = day
+    },
     isPicked (day) {
       return (this.pickedDates.start && this.pickedDates.start.timestamp === day.timestamp) || (this.pickedDates.end && this.pickedDates.end.timestamp === day.timestamp)
     },
